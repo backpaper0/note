@@ -1,1 +1,4 @@
 site_name: Note
+
+markdown_extensions:
+  - plantuml_markdown:
