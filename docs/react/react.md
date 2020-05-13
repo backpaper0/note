@@ -1,4 +1,4 @@
-# WIP: React
+# Reactまとめ
 
 - Functional ComponentとHookを使う
 - React外のAPIもなるべくHook化するのが良いと思う
@@ -6,7 +6,7 @@
 
 ## renderとDOM更新
 
-- `props`または`state`、Contextが変更されると`render`
-- 親コンポーネントが`render`されるとデフォルトでは必ず`render`される
-    - [React.memo](https://ja.reactjs.org/docs/react-api.html#reactmemo)を使うと`props`または`state`、Contextが変更したときのみ`render`されるようになる
+- [renderが呼び出される条件](render.md)
+- [親子関係を持つコンポーネントにおけるrender関数の呼び出しについて](memoize-component.md)
+- [コンポーネントへ渡す関数について](memoize-function.md)
 
