@@ -30,6 +30,14 @@ curl -s -H "Authorization: Bearer $GITLAB_PERSONAL_ACCESS_TOKEN" \
 - デフォルトだと1度に返すIssueの数が少ないのでクエリパラメーター`per_page`を大きめの値にしている
 - `time_estimate`の値は単位が秒なので最後に除算をして単位を時間に変換している
 
+実績工数を取得するには`time_estimate`を`total_time_spent`にすれば良い。
+
+```
+curl -s -H "Authorization: Bearer $GITLAB_PERSONAL_ACCESS_TOKEN" \
+  "https://gitlab.com/api/v4/projects/$PROJECT_ID/issues?per_page=1000" | \
+  jq '[.[] | select(.state == "opened") | .time_stats.total_time_spent] | add / 60 / 60'
+```
+
 ## ショートカット
 
 全てのショートカットは`?`を押せば見られる。
