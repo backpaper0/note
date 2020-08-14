@@ -11,6 +11,8 @@
 - [select](https://stedolan.github.io/jq/manual/#select(boolean_expression))
 - [path](https://stedolan.github.io/jq/manual/#path(path_expression))
 
+例えば`docker inspect`で得たJSONの中から、exposeしたポートのマッピング先ポートを得るには、どのパスの値を取ればいいのかを調べる。
+
 ```
 $ container_id=$(docker run -d -P nginx)
 $ docker inspect $container_id | jq 'path(.. | .HostPort? | select(. != null))'
