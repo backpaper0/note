@@ -3,7 +3,7 @@
 Sierra以降で発生するっぽい。
 
 ```
-$ echo "InetAddress.getLocalHost()" | time jshell -s       
+$ echo "InetAddress.getLocalHost()" | time jshell -s
 -> InetAddress.getLocalHost()
 -> jshell -s  3.31s user 0.25s system 54% cpu 6.582 total
 ```
@@ -43,5 +43,36 @@ $ echo "InetAddress.getLocalHost()" | time jshell -s -R-Djdk.net.hosts.file=./ho
 
 ## 解決策2
 
-WIP `scutil`を使う。
+`scutil`でホスト名を設定してあげる。
+
+問題が発生する場合、ホスト名が設定されていないはず。
+
+```
+$ scutil --get HostName
+HostName: not set
+```
+
+ホスト名を設定してあげると良い。
+
+```
+$ sudo scutil --set HostName $(scutil --get LocalHostName)
+$ scutil --get HostName
+urgmac
+```
+
+これで速くなる。
+
+```
+% echo "InetAddress.getLocalHost()" | time jshell -s
+-> InetAddress.getLocalHost()
+-> jshell -s  2.54s user 0.21s system 174% cpu 1.578 total
+```
+
+ちなみにホスト名を消したい場合は空文字列で設定し直せば良さそう(もちろん、`InetAddress.getLocalHost`はまた遅くなる)。
+
+```
+$ sudo scutil --set HostName ""
+$ scutil --get HostName
+HostName: not set
+```
 
