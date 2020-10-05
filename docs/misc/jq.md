@@ -110,3 +110,12 @@ $ docker inspect $container_id | jq -r '.. | select(type == "object" and has("Ho
 32779
 ```
 
+## 日時関連
+
+### Fri Jul 20 03:20:02 +0000 2018のような日時をパースする。
+
+```
+echo '"Fri Jul 20 03:20:02 +0000 2018"' | jq 'strptime("%a %b %d %H:%M:%S %z %Y")|mktime'
+```
+
+[Pythonのstrptime](https://docs.python.org/ja/3/library/datetime.html#strftime-and-strptime-format-codes)の書式をサポートしているのかな？
