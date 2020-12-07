@@ -3,7 +3,7 @@
 ## イメージを一括でpullする
 
 ```sh
-for i in `docker images|awk '{print $1 ":" $2}'`; do echo $i; docker pull $i; done
+for i in $(docker images|tail -n +2|awk '{print $1 ":" $2}'); do echo $i; docker pull $i; done
 ```
 
 ## volumeの中身を確認する
