@@ -45,13 +45,47 @@ gg=G
 `^M` はCRっぽい。
 LFは `\\r` 。
 
+## 改行コードの確認
+
+```vim
+:set fileformat?
+```
+
+`:set ff?`でも良い。
+
 ## 改行コードの指定
 
 ```vim
 :set fileformat=unix
 ```
 
+`:set ff=unix`でも良い。
+
 オペランドは `dos` , `unix` , `mac` を指定できる。
+
+## 文字コード（エンコーディング）の確認
+
+```vim
+:set encoding?
+```
+
+`:set enc?`でも良い。
+
+## 別の文字コード（エンコーディング）で開き直す
+
+```vim
+:e ++encoding=shift_jis
+```
+
+`:e ++enc=shift_jis`でも良い。
+
+## ファイルの文字コード（エンコーディング）を変更する
+
+```vim
+:set fileencoding=shift_jis
+```
+
+`:set fenc=shift_jis`でも良い。
 
 ## ウィンドウを分割する
 
