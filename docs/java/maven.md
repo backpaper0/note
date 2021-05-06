@@ -39,3 +39,19 @@ mvn test \
   -Dmaven.compiler.fork=true \
   -Djvm=$(/usr/libexec/java_home -v 11)/bin/java
 ```
+
+## Maven Wrapper
+
+- https://github.com/takari/maven-wrapper
+
+`java`コマンドに渡すオプションを`.mvn/jvm.config`で設定できる。
+
+たとえばプロキシの設定をしたい場合は次のように書くと良い。
+
+```
+-Dhttp.proxyHost=proxy.example.com
+-Dhttp.proxyPort=3128
+-Dhttps.proxyHost=proxy.example.com
+-Dhttps.proxyPort=3128
+-Dhttp.nonProxyHosts=localhost
+```
