@@ -3,6 +3,7 @@
 - java
   - [compile-java7-java8](java/compile-java7-java8.md)
   - [deploy-to-maven-central-repository](java/deploy-to-maven-central-repository.md)
+  - [eclipse](java/eclipse.md)
   - [inetaddress_getlocalhost_is_slow_on_mac](java/inetaddress_getlocalhost_is_slow_on_mac.md)
   - [jfr](java/jfr.md)
   - [lambda-stream-optional](java/lambda-stream-optional.md)
