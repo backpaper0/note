@@ -6,7 +6,7 @@
 
 https://backpaper0.github.io/note/index.html
 
-新しくファイルを追加した場合は`docs`ディレクトリで`rm _sidebar.md`と`docsify g .`を行うこと。
+新しくファイルを追加した場合は`make regenerate_sidebar`を行うこと。
 
 ## License
 
