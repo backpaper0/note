@@ -24,9 +24,16 @@
 
 ## Gitリポジトリ内にあるすべてのMavenプロジェクトをビルドする
 
+```
+git ls-files -- '**/pom.xml' | xargs -t -I {} mvn -f {} clean
+```
+
+`for`でもできる。
+
 ```sh
 for i in `git ls-files -- **/pom.xml`; do mvn -f $i clean package; done
 ```
+
 ## Java 8で動かしながらコンパイルはJava 7、テストはJava 11で行う
 
 `maven.compiler.executable`には`javac`を指定します。

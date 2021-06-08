@@ -23,6 +23,11 @@ wc -l
 `.txt` を `.md` に変更する。
 
 ```sh
+# 毎回bashが起動する分、遅いかもしれない
+ls *.txt|xargs -t -I {} bash -c 'mv $0 ${0%.txt}.md' {}
+```
+
+```sh
 for x in *.txt; do mv $x ${x%.txt}.md; done
 ```
 

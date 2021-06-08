@@ -3,12 +3,12 @@
 ## イメージを一括でpullする
 
 ```sh
-for i in $(docker images|tail -n +2|awk '{print $1 ":" $2}'); do echo $i; docker pull $i; done
+docker images|tail -n +2|awk '{print $1 ":" $2}'|xargs -t -n 1 docker pull
 ```
 
 ## volumeの中身を確認する
 
 ```sh
-for i in $(docker volume ls | tail -n +2 | awk '{print $2}'); do echo $i; docker run -it --rm -v $i:/work:ro busybox ls /work/; echo ''; done
+docker volume ls|tail -n +2|awk '{print $2}'|xargs -I {} -t docker run --rm -v {}:/work:ro busybox find /work
 ```
 
