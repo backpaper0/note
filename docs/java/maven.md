@@ -24,7 +24,7 @@
 
 ## Gitリポジトリ内にあるすべてのMavenプロジェクトをビルドする
 
-```
+```sh
 git ls-files -- '**/pom.xml' | xargs -t -I {} mvn -f {} clean
 ```
 
