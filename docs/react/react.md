@@ -6,7 +6,7 @@
 
 ## renderとDOM更新
 
-- [renderが呼び出される条件](render.md)
-- [親子関係を持つコンポーネントにおけるrender関数の呼び出しについて](memoize-component.md)
-- [コンポーネントへ渡す関数について](memoize-function.md)
+- [renderが呼び出される条件](react/render.md)
+- [親子関係を持つコンポーネントにおけるrender関数の呼び出しについて](react/memoize-component.md)
+- [コンポーネントへ渡す関数について](react/memoize-function.md)
 
